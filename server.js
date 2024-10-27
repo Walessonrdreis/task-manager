@@ -1,7 +1,7 @@
 import express from 'express';//Framework para construção de aplicações web
 import bodyParser from 'body-parser';// Middleware para processar dados JSON
-import db from './models/db';
-import taskRoutes from './routes/taskRoutes';
+import db from './models/db.js';
+import taskRoutes from './routes/taskRoutes.js';
 
 const app = express();
 app.use(bodyParser.json());

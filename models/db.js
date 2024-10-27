@@ -1,4 +1,7 @@
-const sqlite3 = require('sqlite3').verbose();
+import sqlite3 from 'sqlite3';
+
+//ativo o modo verbose, que fornece mensagens detalhadas sobre operações do banco de dados
+sqlite3.verbose(); 
 
 // Criando e exportando a conexão con o banco de dados
 const db = new sqlite3.Database(':memory:', (err) =>{
@@ -9,4 +12,4 @@ const db = new sqlite3.Database(':memory:', (err) =>{
     }
 })
 
-module.exports =db;
+export default db;

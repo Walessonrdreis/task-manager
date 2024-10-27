@@ -1,8 +1,8 @@
-import { error } from 'console';
+
 import db from '../models/db.js';
 
 // função para adicionar uma nova tarefa
-exports.addTask = (req,res)=>{
+export const addTask = (req,res)=>{
     const {description,date} = req.body;
     db.run("INSERT INTO tasks (description,date,completed) VALUES (?,?,?)",[description,date,false],function(err){
         if(err){
@@ -13,7 +13,7 @@ exports.addTask = (req,res)=>{
 }
 
 //função para marcar um tarefa como concluída
-exports.completedTask = (req,res)=>{
+export const completedTask = (req,res)=>{
     const id = req.params.id;
     db.run("UPDATE tasks SET completed = ? WHERE id = ?",[true,id],function(err){
         if(err){
@@ -25,7 +25,7 @@ exports.completedTask = (req,res)=>{
 }
 
 //função para listar todas as tarefas 
-exports.listTasks = (req,res)=>{
+export const listTasks = (req,res)=>{
     db.all("SELECT * FROM tasks",[],(err,rows)=>{
         if(err) return res.status(400).json({error:err.message});
     });
