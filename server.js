@@ -1,5 +1,5 @@
-import express from 'express';
-import bodyParser from 'body-parser';
+import express from 'express';//Framework para construção de aplicações web
+import bodyParser from 'body-parser';// Middleware para processar dados JSON
 import db from './models/db';
 import taskRoutes from './routes/taskRoutes';
 
